@@ -8,7 +8,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <script> AFRAME.registerComponent('vidhandler', {  init: function () {  this.toggle = false; this.vid = document.querySelector("#vid"); this.vid.pause(); }, tick:function(){ if(this.el.object3D.visible == true){ if(!this.toggle){ this.toggle = true; this.vid.play(); } }else{ this.toggle = false; this.vid.pause(); } } }); function refrespage() { location.reload(); } </script>
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 300; canvasHeight: 300' >
+	<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 400; canvasHeight: 400' >
 
      <a-assets >
         <video preload="auto"  id="vid"loop="true" crossorigin  webkit-playsinline playsinline controls>
