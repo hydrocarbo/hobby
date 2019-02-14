@@ -11,7 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <script> AFRAME.registerComponent('vidhandler', {  init: function () {  this.toggle = false; this.vid = document.querySelector("#vid"); this.vid.pause(); }, tick:function(){ if(this.el.object3D.visible == true){ if(!this.toggle){ this.toggle = true; this.vid.play(); } }else{ this.toggle = false; this.vid.pause(); } } }); function refrespage() { location.reload(); } </script>
 <body style='margin : 0px; overflow: hidden;'>
-	<div id="content">
+	<div class="watermark">
     <img src="png3dxar.png" class="ribbon"/>
 </div>
 	<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 600; canvasHeight: 500' >
@@ -119,10 +119,10 @@
      .a-enter-vr-button{
      display: none !important;
      }
-	  #content {
+	  .content {
     position: relative;
 }
-#content img {
+.content:img {
     position: absolute;
     top: 0px;
     right: 0px;
