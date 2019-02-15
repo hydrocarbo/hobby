@@ -12,7 +12,7 @@
 <script> AFRAME.registerComponent('vidhandler', {  init: function () {  this.toggle = false; this.vid = document.querySelector("#vid"); this.vid.pause(); }, tick:function(){ if(this.el.object3D.visible == true){ if(!this.toggle){ this.toggle = true; this.vid.play(); } }else{ this.toggle = false; this.vid.pause(); } } }); function refrespage() { location.reload(); } </script>
 <body style='margin : 0px; overflow: hidden;'>
 	 <div class="container">
-  <img src="png3dxar.png" alt="Cinque Terre" width="700" height="210">
+  <img src="png3dxar.png" alt="Cinque Terre" width="1000" height="300">
   </div>
 	
 	<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 600; canvasHeight: 500' >
@@ -125,10 +125,10 @@
 }
 img { 
   position: fixed;
-  
+  width: 100%;
   top: 8px;
   right: 16px;
-  
+  height: 100%;
   opacity: 1;
   }
   </style>
