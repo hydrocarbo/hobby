@@ -1,3 +1,4 @@
+
 <!doctype HTML>
 <html>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -13,18 +14,23 @@
 <script> AFRAME.registerComponent('vidhandler', {  init: function () {  this.toggle = false; this.vid = document.querySelector("#vid"); this.vid.pause(); }, tick:function(){ if(this.el.object3D.visible == true){ if(!this.toggle){ this.toggle = true; this.vid.play(); } }else{ this.toggle = false; this.vid.pause(); } } }); function refrespage() { location.reload(); } </script>
 <body style='margin : 0px; overflow: hidden;'>
 	 <div class="container">
-		  <img src="logo.png" alt="Cinque Terre">
-        </div>
-		<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 600; canvasHeight: 500' >
+		
+  <img src="logo.png" alt="Cinque Terre">
+ 
+	</div>
+	
+	<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 600; canvasHeight: 500' >
+
      <a-assets >
         <video preload="auto"  id="vid"loop="true" crossorigin  webkit-playsinline playsinline controls>
            <source  type="video/mp4"  src="neha.mp4">
            <h3>Error : Your browser does not support.</h3>
+         
         </video>
      </a-assets>
    
     <a-marker preset='custom' type='pattern' url='pattern-marker.patt'>
-        <a-plane  position='0 0.1 0' scale="4 4 4" rotation="-90 0 0" material="shader: chromakey; src: #vid; color: 0.0 0.9 1.0"></a-plane>
+        <a-plane  position='0 0.1 0' scale="5 5 5" rotation="-90 0 0" material="shader: chromakey; src: #vid; color: 0.0 0.9 1.0"></a-plane>
      </a-marker>
      <a-entity camera></a-entity>
   </a-scene>
@@ -80,7 +86,19 @@
      margin:0px;
      overflow: hidden;
      }
-     
+     .resets{
+     background-color: rgba(51, 51, 51, 0.529);
+     color: #fff;
+     text-align: center;
+     border-radius: 2px;
+     height: 50px;
+     padding: 10px 10px 10px 10px;
+     position: fixed;
+     top: 10px;
+     text-align: center;
+     z-index: 9000000000;
+     bottom: 10px;
+     }
      .btnskips{
      background: rgba(0, 0, 0, 0.433);
      color: white !important;
@@ -91,18 +109,20 @@
      #arjsDebugUIContainer{
      display: none;
      }
-     
-	.container {
-  position: fixed;
-}
-img { 
-  position: fixed;
-  width: 16%;
-  top: 0px;
-  right: 0px;
-  height:3%;
-  opacity: 1;
-  }
+     .a-enter-vr-button{
+     display: none !important;
+     }
+     .container {
+      position: fixed;
+     }
+     img { 
+     position: fixed;
+     width: 16%;
+     top: 0px;
+     right: 0px;
+     height:3%;
+     opacity: 1;
+    }
   </style>
    </body>
 </html>
