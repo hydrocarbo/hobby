@@ -1,8 +1,5 @@
-
 <!doctype HTML>
 <html>
-
-
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">  
@@ -14,36 +11,37 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <script> AFRAME.registerComponent('vidhandler', {  init: function () {  this.toggle = false; this.vid = document.querySelector("#vid"); this.vid.pause(); }, tick:function(){ if(this.el.object3D.visible == true){ if(!this.toggle){ this.toggle = true; this.vid.play(); } }else{ this.toggle = false; this.vid.pause(); } } }); function refrespage() { location.reload(); } </script>
-
-	<body style='margin : 0px; overflow: hidden;'>
+<body style='margin : 0px; overflow: hidden;'>
 	 <div class="container">
 		
   <img src="logo.png" alt="Cinque Terre">
  
 	</div>
 	
-	<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 40; canvasWidth: 600; canvasHeight: 600' >
+	<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 600; canvasHeight: 500' >
 
      <a-assets >
         <video preload="auto"  id="vid"loop="true" crossorigin  webkit-playsinline playsinline controls>
            <source  type="video/mp4"  src="neha.mp4">
            <h3>Error : Your browser does not support.</h3>
-         
+          <!-- FOR NORMAL VIDEO YOU CAN USE MP4 or WEBM BUT FOR ALPHA VIDEO YOU NEED TO USE .WEBM FORMAT-->
         </video>
      </a-assets>
    
     <a-marker preset='custom' type='pattern' url='pattern-marker.patt'>
-        <a-plane  position='0 0.1 0' scale="4 4 4" rotation="-90 0 0" material="shader: chromakey; src: #vid; color: 0.0 0.9 1.0"></a-plane>
+        <a-plane  position='0 0.1 0' scale="4 4 4" rotation="-90 0 0" material="shader: chromakey; src: #vid; color: 0.1 0.9 0.2"></a-plane>
      </a-marker>
      <a-entity camera></a-entity>
   </a-scene>
-  <div class="footer">
+ 
      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-           <div class="onebleft">
-              <button onclick="vid.play()" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Play</button>
+        <p aling= "middle">
+           <div class="wrapper">
+              <button onclick="vid.play()" class="button" style="textcolour:red; height:40px; width:200px; border-radius:10px;"> Play </button>
            </div>
+	     </p>
         </div>
+	 <div class="footer">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
            <div class="onebright">
               <button onclick="refrespage()" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Refresh</button>
@@ -59,19 +57,33 @@
      width: 100%;
      color: white;
      }
-     .onebleft{
-     padding: 5px 5px 5px 5px;
-     margin: 5px 15px 5px 5px ;
-     float: left;
-     z-index: 900000000000;
+     .wrapper{
+         text-align: center;
      }
+      .button {
+      position: absolute;
+      top: 70%;
+      c
+      }
      .onebright{
      padding: 5px 5px 5px 5px;
      margin: 5px 15px 5px 5px ;
      float: right;
      z-index: 900000000000;
      }
-     
+     .imgon{
+     width: 55px;
+     height: 55px;
+     background-color:white;
+     padding: 3px 2px 2px 2px !important;
+     }
+     .imgss{
+     width: 50px !important;
+     height:50px !important;
+     } 
+     .imgname{
+     font-size: 10px;
+     }
      .header {
      position: fixed;
      left: 0;
@@ -115,23 +127,17 @@
      .a-enter-vr-button{
      display: none !important;
      }
-     .container {
-      position: fixed;
-     }
-     img { 
-     position: fixed;
-     width: 16%;
-     top: 0px;
-     right: 0px;
-     height:3%;
-     opacity: 1;
-    }
+	.container {
+  position: fixed;
+}
+img { 
+  position: fixed;
+  width: 16%;
+  top: 0px;
+  right: 0px;
+  height:3%;
+  opacity: 1;
+  }
   </style>
-<script>
-var vid = document.getElementById("vid");
-vid.onwaiting = function() {
-  alert("Wait! I need to buffer the next frame");
-};
-</script> 
    </body>
 </html>
