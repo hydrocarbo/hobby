@@ -37,7 +37,7 @@
      <div class="row">
         <p aling= "middle">
            <div class="wrapper">
-              <button id="abc" onclick="vid.play()" class="button" style="textcolour:red; height:40px; width:200px; border-radius:10px;"> Play </button>
+              <button onclick="vid.play()" class="button" style="textcolour:red; height:40px; width:200px; border-radius:10px;"> Play </button>
            </div>
 	     </p>
         </div>
@@ -140,7 +140,7 @@ img {
   }
   </style>
 <script>
-document.document.getElementById('abc').onclick = function(event){
+document.getElementsByClassName('wrapper').onclick = function(event){
 		  	document.getElementById('logo1').className = "hidden";
 		}
 </script> 
