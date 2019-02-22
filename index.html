@@ -2,7 +2,17 @@
 <html>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">  
+<meta http-equiv="Expires" content="0"> 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132706602-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-132706602-2');
+</script>
+
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
 <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
@@ -15,10 +25,10 @@
 	 <div class="container">
 		
   <img src="logo.png" alt="Cinque Terre">
- 
+ <img src="photo.png" id="photo">
 	</div>
 	
-	<a-scene loading-screen="dotsColor: red; backgroundColor: black" embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 600; canvasHeight: 500' >
+	<a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 600; canvasHeight: 500' >
 
      <a-assets >
         <video preload="auto"  id="vid"loop="true" crossorigin  webkit-playsinline playsinline controls>
@@ -29,19 +39,17 @@
      </a-assets>
    
     <a-marker preset='custom' type='pattern' url='pattern-marker.patt'>
-        <a-plane  position='0 0.1 0' scale="4 4 4" rotation="-90 0 0" material="shader: chromakey; src: #vid; color: 0.1 0.9 0.2"></a-plane>
+        <a-plane  position='0 0.1 0' scale="6 6 6" rotation="-90 0 0" material="shader: chromakey; src: #vid; color: 0.0 0.9 1.0"></a-plane>
      </a-marker>
      <a-entity camera></a-entity>
   </a-scene>
- <img src="photo.png" id="logo1">
+  <div class="footer">
      <div class="row">
-        <p aling= "middle">
-           <div class="wrapper">
-              <button onclick="vid.play()" class="button" style="textcolour:red; height:40px; width:200px; border-radius:10px;"> Play </button>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+           <div class="onebleft">
+              <button onclick="vid.play()" class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
            </div>
-	     </p>
         </div>
-	 <div class="footer">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
            <div class="onebright">
               <button onclick="refrespage()" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Refresh</button>
@@ -57,14 +65,12 @@
      width: 100%;
      color: white;
      }
-     .wrapper{
-         text-align: center;
+     .onebleft{
+     padding: 5px 5px 5px 5px;
+     margin: 5px 15px 5px 5px ;
+     float: left;
+     z-index: 900000000000;
      }
-      .button {
-      position: absolute;
-      top: 70%;
-      c
-      }
      .onebright{
      padding: 5px 5px 5px 5px;
      margin: 5px 15px 5px 5px ;
@@ -127,14 +133,21 @@
      .a-enter-vr-button{
      display: none !important;
      }
-	
+     .container {
+      position: fixed;
+     }
+     img { 
+     position: fixed;
+     width: 16%;
+     top: 0px;
+     right: 0px;
+     height:3%;
+     opacity: 1;
+    }
   </style>
-<script>
-		
-		document.getElementsByClassName('wrapper').onclick = function(event){
-		  	document.getElementById('logo1').className = "hidden";
-		}		  
-	</script>
-
+	<script>
+		document.getElementsByClassName('onebleft').onclick = function(event){
+		  	document.getElementById('photo').className = "hidden";
+		</script>
    </body>
 </html>
