@@ -33,7 +33,7 @@
      </a-marker>
      <a-entity camera></a-entity>
   </a-scene>
- 
+ <img src="photo.png" id="logo1">
      <div class="row">
         <p aling= "middle">
            <div class="wrapper">
@@ -140,10 +140,9 @@ img {
   }
   </style>
 <script>
-var vidl = document.getElementById("vid");
-vidl.onwaiting = function() {
-  alert("Wait! I need to buffer the next frame");
-};
+document.getElementsByClassName('wrapper').onClick = function(event){
+		  	document.getElementById('logo1').className = "hidden";
+		}
 </script> 
    </body>
 </html>
