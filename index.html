@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-    <title>My A-Frame Scene</title>
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"> </script>
-</head>
-<body>
-    <!-- Aframe scene -->
-  
-    <a-scene embedded arjs renderer="precision: mediump">
-        <!-- Declaring chart component -->
-        <a-box position='0 0 -1' material='color: green;'></a-box>
-        <!-- Aframe camera -->
-        <a-entity camera look-controls pointerLockEnabled>
-            <a-cursor></a-cursor>
-        </a-entity>
-    </a-scene>
-</body>
-</html>
+<html lang="en">
 
+<head>
+  <title>augmented reality</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- A FRAME -->
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.4/dist/aframe-extras.min.js" crossorigin="anonymous"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+  <!-- import events.js script -->
+  <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- import the webpage's javascript file -->
+  <script src="/script.js" defer></script>
+</head>
+
+<body>
+
+
+  <a-scene shadow="type: pcfsoft" embedded arjs='sourceType: webcam; debugUIEnabled: false;' debug>
+
+    <a-marker preset="hiro">
+      <a-entity shadow="cast: true" gltf-model="https://cdn.glitch.com/0d1945ac-ed6f-44be-9903-e1c1626575a4%2Fcar.glb?1548349423434" position="0 0 0" crossOrigin="anonymous" response-type="arraybuffer" rotation="0 0 0" scale="0.05 0.05 0.05">
+      </a-entity>
+    </a-marker>
+    <a-entity light="type: ambient; color: #CCC"></a-entity>
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+
+</body>
+
+</html>
