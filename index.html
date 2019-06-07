@@ -1,71 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>&lt;model-viewer&gt; example</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="demo-styles.css">
-    
-    <!-- The following libraries and polyfills are recommended to maximize browser support -->
-    <!-- NOTE: you must adjust the paths as appropriate for your project -->
-    
-    <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
-    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+<head>
+  <title>augmented reality</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- A FRAME -->
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.4/dist/aframe-extras.min.js" crossorigin="anonymous"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+  <!-- import events.js script -->
+  <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/style.css">
 
-    <!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
-    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+  <!-- import the webpage's javascript file -->
+  <script src="/script.js" defer></script>
 
-    <!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
-    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
-    <!-- 💁 OPTIONAL: Fullscreen polyfill is required for experimental AR features in Canary -->
-    <!--<script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>-->
+</head>
 
-    <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
-    <script src="https://unpkg.com/@magicleap/prismatic/prismatic.min.js"></script>
-    
-  </head> 
 <body>
-  <div id="card">
-    <!-- All you need to put beautiful, interactive 3D content on your site: -->
-    <model-viewer src="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.glb?1542147958948"
-                  alt="A 3D model of an astronaut"
-                  background-color="#70BCD1"
-                  shadow-intensity="1"
-                  camera-controls
-                  auto-rotate ar magic-leap>
-    </model-viewer>
-    <section class="attribution">
-      <span>
-        <h1>Astronaut</h1>
-        <span>By <a href="https://poly.google.com/view/dLHpzNdygsg" target="_blank">Poly</a></span>
-      </span>
-      <a class="cc" href="https://creativecommons.org/licenses/by/2.0/" target="_blank">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg">
-        <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg">
-      </a>
-    </section>
+<script type="text/javascript">
+    AFRAME.registerComponent('drag-rotate-component',{
+      schema : { speed : {default:1}},
+      init : function(){
+        this.ifMouseDown = false;
+        this.x_cord = 0;
+        this.y_cord = 0;
+        document.addEventListener('mousedown',this.OnDocumentMouseDown.bind(this));
+        document.addEventListener('mouseup',this.OnDocumentMouseUp.bind(this));
+        document.addEventListener('mousemove',this.OnDocumentMouseMove.bind(this));
+      },
+      OnDocumentMouseDown : function(event){
+        this.ifMouseDown = true;
+        this.x_cord = event.clientX;
+        this.y_cord = event.clientY;
+      },
+      OnDocumentMouseUp : function(){
+        this.ifMouseDown = false;
+      },
+      OnDocumentMouseMove : function(event)
+      {
+        if(this.ifMouseDown)
+        {
+          var temp_x = event.clientX-this.x_cord;
+          var temp_y = event.clientY-this.y_cord;
+          if(Math.abs(temp_y)<Math.abs(temp_x))
+          {
+            this.el.object3D.rotateY(temp_x*this.data.speed/1000);
+          }
+          else
+          {
+            this.el.object3D.rotateX(temp_y*this.data.speed/1000);
+          }
+          this.x_cord = event.clientX;
+          this.y_cord = event.clientY;
+        }
+      }
+    });
+  </script>
+<div class="container">
     
+  <img src="logo.png" alt="Cinque Terre">
+ 
   </div>
-  
-  
-  <footer>
-    
-  </footer>
-  
-  
-  <!-- 💁 Include both scripts below to support all browsers! -->
+  <a-scene loading-screen="dotsColor: red; backgroundColor: black" shadow="type: pcfsoft" embedded arjs='sourceType: webcam; debugUIEnabled: false;' debug>
 
-  <!-- Loads <model-viewer> for modern browsers: -->
-  <script type="module"
-      src="https://unpkg.com/@google/model-viewer@v0.3.1/dist/model-viewer.js">
-  </script>
+    <a-marker preset="hiro">
+      <a-entity drag-rotate-component shadow="cast: true" gltf-model="https://cdn.glitch.com/0d1945ac-ed6f-44be-9903-e1c1626575a4%2Fcar.glb?1548349423434" position="0 0 0" crossOrigin="anonymous" response-type="arraybuffer" rotation="0 0 0" scale="0.05 0.05 0.05">
+      </a-entity>
+    </a-marker>
+    <a-entity light="type: ambient; color: #CCC"></a-entity>
+    <a-entity camera></a-entity>
 
-  <!-- Loads <model-viewer> for old browsers like IE11: -->
-  <script nomodule
-      src="https://unpkg.com/@google/model-viewer@v0.3.1/dist/model-viewer-legacy.js">
-  </script>
+  </a-scene>
+
+<div class="footer">
+     <div class="row">
+        <div class="col">
+           
+              <button onclick="vid.play()" class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
+           
+        </div>
+        <div class="col">
+          
+              <button onclick="vid.play()" class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
+           
+        </div>
+        <div class="col">
+           
+              <button onclick="vid.play()" class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
+           
+        </div>
+        <div class="col">
+           
+              <button onclick="refrespage()" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Refresh</button>
+           
+        </div>
+     </div>
+  </div>
+
+<style>
+     .footer {
+     position: fixed;
+     
+     bottom: 0;
+     width: 100%;
+     color: white;
+     }
+     .onebleft{
+     padding: 5px 5px 5px 5px;
+     margin: 5px 15px 5px 5px ;
+     float: left;
+     z-index: 900000000000;
+     }
+     .onebright{
+     padding: 5px 5px 5px 5px;
+     margin: 5px 15px 5px 5px ;
+     float: right;
+     z-index: 900000000000;
+     }
+     .imgon{
+     width: 55px;
+     height: 55px;
+     background-color:white;
+     padding: 3px 2px 2px 2px !important;
+     }
+     .imgss{
+     width: 50px !important;
+     height:50px !important;
+     } 
+     .imgname{
+     font-size: 10px;
+     }
+     .header {
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 100%;
+     color: white;
+     }
+     .oneleft{
+     padding: 5px 5px 5px 5px;
+     margin: 5px 15px 5px 5px ;
+     float: left;
+     z-index: 900000000000;
+     }
+     body{
+     margin:0px;
+     overflow: hidden;
+     }
+     .resets{
+     background-color: rgba(51, 51, 51, 0.529);
+     color: #fff;
+     text-align: center;
+     border-radius: 2px;
+     height: 50px;
+     padding: 10px 10px 10px 10px;
+     position: fixed;
+     top: 10px;
+     text-align: center;
+     z-index: 9000000000;
+     bottom: 10px;
+     }
+     .btnskips{
+     background: rgba(0, 0, 0, 0.433);
+     color: white !important;
+     }
+     .btnskips:hover{
+     background: rgb(197, 197, 197);
+     }
+     #arjsDebugUIContainer{
+     display: none;
+     }
+     .a-enter-vr-button{
+     display: none !important;
+     }
+     .container {
+      position: fixed;
+     }
+     img { 
+     position: fixed;
+     width: 16%;
+     top: 0px;
+     right: 0px;
+     height:3%;
+     opacity: 1;
+    }
+  </style>
 </body>
+
 </html>
