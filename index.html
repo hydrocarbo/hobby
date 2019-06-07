@@ -26,7 +26,45 @@
 </head>
 
 <body>
-
+<script type="text/javascript">
+    AFRAME.registerComponent('drag-rotate-component',{
+      schema : { speed : {default:1}},
+      init : function(){
+        this.ifMouseDown = false;
+        this.x_cord = 0;
+        this.y_cord = 0;
+        document.addEventListener('mousedown',this.OnDocumentMouseDown.bind(this));
+        document.addEventListener('mouseup',this.OnDocumentMouseUp.bind(this));
+        document.addEventListener('mousemove',this.OnDocumentMouseMove.bind(this));
+      },
+      OnDocumentMouseDown : function(event){
+        this.ifMouseDown = true;
+        this.x_cord = event.clientX;
+        this.y_cord = event.clientY;
+      },
+      OnDocumentMouseUp : function(){
+        this.ifMouseDown = false;
+      },
+      OnDocumentMouseMove : function(event)
+      {
+        if(this.ifMouseDown)
+        {
+          var temp_x = event.clientX-this.x_cord;
+          var temp_y = event.clientY-this.y_cord;
+          if(Math.abs(temp_y)<Math.abs(temp_x))
+          {
+            this.el.object3D.rotateY(temp_x*this.data.speed/1000);
+          }
+          else
+          {
+            this.el.object3D.rotateX(temp_y*this.data.speed/1000);
+          }
+          this.x_cord = event.clientX;
+          this.y_cord = event.clientY;
+        }
+      }
+    });
+  </script>
 <div class="container">
     
   <img src="logo.png" alt="Cinque Terre">
@@ -35,7 +73,7 @@
   <a-scene loading-screen="dotsColor: red; backgroundColor: black" shadow="type: pcfsoft" embedded arjs='sourceType: webcam; debugUIEnabled: false;' debug>
 
     <a-marker preset="hiro">
-      <a-entity shadow="cast: true" gltf-model="https://cdn.glitch.com/0d1945ac-ed6f-44be-9903-e1c1626575a4%2Fcar.glb?1548349423434" position="0 0 0" crossOrigin="anonymous" response-type="arraybuffer" rotation="0 0 0" scale="0.05 0.05 0.05">
+      <a-entity drag-rotate-component shadow="cast: true" gltf-model="https://cdn.glitch.com/0d1945ac-ed6f-44be-9903-e1c1626575a4%2Fcar.glb?1548349423434" position="0 0 0" crossOrigin="anonymous" response-type="arraybuffer" rotation="0 0 0" scale="0.05 0.05 0.05">
       </a-entity>
     </a-marker>
     <a-entity light="type: ambient; color: #CCC"></a-entity>
