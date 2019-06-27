@@ -1,48 +1,27 @@
 <!doctype HTML>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
-    <body style='margin : 0px; overflow: hidden;'>
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-       <div class="onebleft">
-              <button onclick="myFunction()" class="btn btnskips" style="z-index:1; textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
-           </div>
-        <script>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.js">
+</script> 
 
 
-function myFunction() {
-  document.getElementById("animated-asset").src = "https://lucianoabriata.altervista.org/jsinscience/arjs/armodeling/duck.gltf";
-}
-</script>
-
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-
-        <a-assets>
-            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
-        </a-assets>
-
-        
-
-        <a-marker id="animated-marker" preset="hiro">
-            <a-entity
-                gltf-model="#animated-asset"
-                scale="2">
-            </a-entity>
-        </a-marker>
-
-        <a-entity camera></a-entity>
-        </a-scene>
-        <style>.btnskips{
-            position: fixed;
-           
-     background: rgba(0, 0, 0, 0.433);
-     color: white !important;
-     }
-        </style>
-    </body>
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs='trackingMethod: best; debugUIEnabled: false;'>
+      <a-entity light="type: ambient; intensity: 4;"></a-entity>
+      <a-marker preset="hiro">
+        <a-gltf-model src="https://rawgit.com/germanviscuso/AR.js/master/three.js/examples/models/oculus_rift_cv1/scene.gltf" scale="0.37 0.37 0.37" position="0 0.75 0" sound="on: model-loaded; src: url(https://rawgit.com/germanviscuso/AR.js/master/three.js/examples/sounds/Bloom_-_10_-_Temperance.mp3); autoplay: true; loop: true">
+          <a-animation attribute = "rotation"
+               dur = "10000"
+               from = "-90 0 0"
+               to = "270 0 0"
+               easing = "linear"
+               repeat="indefinite"
+          </a-animation>
+        </a-gltf-model>
+      </a-marker>
+      <a-camera-static/>
+    </a-scene>
+</body>
 </html>
