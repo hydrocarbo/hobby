@@ -1,16 +1,36 @@
 <!doctype HTML>
 <html>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
-<body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs='trackingMethod: best; debugUIEnabled: false;'>
-    <a-assets>
-      <a-asset-item id="model" src="https://rawgit.com/KhronosGroup/glTF-Sample-Models/master/1.0/CesiumMan/glTF/CesiumMan.gltf" crossOrigin="anonymous">
-      </a-asset-item> 
-  </a-assets>
-  <a-gltf-model src="#model"></a-gltf-model>
-  <a-marker-camera preset='hiro'></a-marker-camera>
-    <a-camera-static/>
-    </a-scene>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <body style='margin : 0px; overflow: hidden;'>
+        <button style="position: fixed;z-index: 9999; top: 50%;bottom: 50%" id="1bhk" onclick="myFunction()">1bhk</button>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
+        <a-assets>
+            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+        </a-assets>
+
+        
+
+        <a-marker preset="hiro">
+            <a-entity
+                gltf-model="#animated-asset"
+                scale="2">
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+        </a-scene>
+        <script type="text/javascript">
+            function myFunction() {
+                document.getElementById("animated-asset").src = "https://github.com/KhronosGroup/glTF-Sample-Models/blob/master/1.0/Duck/glTF/Duck.gltf"
+            }
+        </script>
+    </body>
 </html>
