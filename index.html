@@ -1,45 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style type="text/css">#myBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}</style>
+    </head>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <body style='margin : 0px; overflow: hidden;'>
+        <button id="myBtn">Try it</button>
+        <style type="text/css"></style>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
-<head>
-  <meta charset="UTF-8">
-  <meta aframe-injected="" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui">
-  <meta aframe-injected="" name="mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
-  <script async src="main.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.1/aframe/build/aframe-ar.js"></script>
-</head>
-<body>
-  <main class="main">
+        <a-assets>
+            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
+        </a-assets>
 
-  	<div class="btns-wrap">
-      <div title="Rotate 360" class="btn rotate"></div>
-      <div title="Zoom in/out" class="btn scale"></div>
-      <div title="Previous Letter" class="btn prev custom-button"></div>
-      <div title="Next Letter" class="btn next custom-button"></div>
-      </div>
-      <div class="AR-tip" id="noMedia" style="display:none">
-    </div>
-  </main>
-    <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' hidden>
-    <a-assets>
-      <a-asset-item id="airplane_asset_mtl" src="https://raw.githubusercontent.com/prashant-andani/AR-Alphabets-words/master/assets/airplane/FREOBJ.mtl"></a-asset-item>
-      <a-asset-item id="airplane_asset_obj" src="https://raw.githubusercontent.com/prashant-andani/AR-Alphabets-words/master/assets/airplane/FREOBJ.obj"></a-asset-item>
+        <a-marker type='barcode' value='7'>
+            <a-box position='0 0.5 0' color="yellow"></a-box>
+        </a-marker>
 
-      <a-asset-item id="axe_asset" src="https://raw.githubusercontent.com/prashant-andani/3d-models/master/axe/scene.gltf"></a-asset-item>
-      <a-asset-item id="boat_asset" src="https://raw.githubusercontent.com/prashant-andani/3d-models/master/boat/scene.gltf"></a-asset-item>
-       </a-assets>
- <a-marker preset="hiro" id="aframe-scene">
-      <a-entity light="type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"></a-entity>
-    </a-marker>
+        <a-marker id="animated-marker" type='barcode' value='6'>
+            <a-entity id="abc"
+                gltf-model="#animated-asset"
+                scale="2">
+            </a-entity>
+        </a-marker>
 
-    <a-entity camera></a-entity>
+        <a-entity camera></a-entity>
+        </a-scene>
+        <script>
+document.getElementById("myBtn").addEventListener("click", myFunction);
 
-  </a-scene>
-
-  </body>
-
+function myFunction() {
+  document.getElementById("abc").gltf-model = "https://raw.githubusercontent.com/prashant-andani/3d-models/master/axe/scene.gltf";
+}
+</script>
+    </body>
 </html>
