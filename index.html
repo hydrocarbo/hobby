@@ -9,9 +9,11 @@
     
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <p id="demo" style='position:relative;z-index:-1;'>Click me.</p>
+       <div class="onebleft">
+              <button onclick="myFunction()" class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
+           </div>
         <script>
-document.getElementById("demo").addEventListener("click", myFunction);
+
 
 function myFunction() {
   document.getElementById("animated-asset").src = "https://lucianoabriata.altervista.org/jsinscience/arjs/armodeling/duck.gltf";
@@ -35,5 +37,10 @@ function myFunction() {
 
         <a-entity camera></a-entity>
         </a-scene>
+        <style>.btnskips{
+     background: rgba(0, 0, 0, 0.433);
+     color: white !important;
+     }
+        </style>
     </body>
 </html>
