@@ -2,33 +2,22 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <style type="text/css">.button{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
-  font-size: 16px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}</style>
-      
-</script>
     </head>
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     
     <body style='margin : 0px; overflow: hidden;'>
-        <button style='z-index:-1 position:relative top: 50%;
-  left: 50%;'onclick="myFunction()">Click me</button>
-
-        <style type="text/css"></style>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <p id="demo">Click me.</p>
+        <script>
+document.getElementById("demo").addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("animated-asset").src = "https://lucianoabriata.altervista.org/jsinscience/arjs/armodeling/duck.gltf";
+}
+</script>
+
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
         <a-assets>
@@ -37,8 +26,8 @@
 
         
 
-        <a-marker preset="hiro" id="animated-marker" >
-            <a-entity id="abc"
+        <a-marker id="animated-marker" preset="hiro">
+            <a-entity
                 gltf-model="#animated-asset"
                 scale="2">
             </a-entity>
@@ -46,11 +35,5 @@
 
         <a-entity camera></a-entity>
         </a-scene>
-        <script>
-
-function myFunction() {
-  document.getElementById("animated-asset").src = "https://raw.githubusercontent.com/prashant-andani/3d-models/master/axe/scene.gltf";
-}
-</script>
     </body>
 </html>
