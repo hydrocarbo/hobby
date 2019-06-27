@@ -22,7 +22,7 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     
     <body style='margin : 0px; overflow: hidden;'>
-        <button id="myBtn">Try it</button>
+        <button id="myBtn" onclick="myFunction()">Try it</button>
         <style type="text/css"></style>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
@@ -31,7 +31,7 @@
             <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
         </a-assets>
 
-        <a-marker preset="hiro">
+        <a-marker type='barcode' value='7'>
             <a-box position='0 0.5 0' color="yellow"></a-box>
         </a-marker>
 
@@ -45,7 +45,6 @@
         <a-entity camera></a-entity>
         </a-scene>
         <script>
-document.getElementById("myBtn").addEventListener("click", myFunction);
 
 function myFunction() {
   document.getElementById("abc").gltf-model = "https://raw.githubusercontent.com/prashant-andani/3d-models/master/axe/scene.gltf";
