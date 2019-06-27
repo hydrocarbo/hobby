@@ -31,11 +31,9 @@
             <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
         </a-assets>
 
-        <a-marker type='barcode' value='7'>
-            <a-box position='0 0.5 0' color="yellow"></a-box>
-        </a-marker>
+        
 
-        <a-marker id="animated-marker" type='barcode' value='6'>
+        <a-marker preset="hiro" id="animated-marker" >
             <a-entity id="abc"
                 gltf-model="#animated-asset"
                 scale="2">
@@ -47,7 +45,7 @@
         <script>
 
 function myFunction() {
-  document.getElementById("abc").gltf-model = "https://raw.githubusercontent.com/prashant-andani/3d-models/master/axe/scene.gltf";
+  document.getElementById("animated-asset").gltf-model = "https://raw.githubusercontent.com/prashant-andani/3d-models/master/axe/scene.gltf";
 }
 </script>
     </body>
