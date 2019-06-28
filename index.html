@@ -8,16 +8,12 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     
     <body style='margin : 0px; overflow: hidden;'>
-     <script type="text/javascript">
-            function myFunction() {
-                document.getElementById("animated-asset").src = "https://github.com/KhronosGroup/glTF-Sample-Models/blob/master/2.0/AnimatedTriangle/glTF/AnimatedTriangle.gltf"
-            }
-        </script>   
+       
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
         <a-assets>
-            <a-asset-item id="animated-asset" src="https://github.com/KhronosGroup/glTF-Sample-Models/blob/master/2.0/AnimatedTriangle/glTF/AnimatedTriangle.gltf"></a-asset-item>
+            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
         </a-assets>
 
         <a-marker id="animated-marker" preset="hiro">
@@ -40,6 +36,11 @@
         
      </div>
   </div>
+        <script type="text/javascript">
+            function myFunction() {
+                document.getElementById("animated-asset").src = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Cameras/glTF/Cameras.gltf"
+            }
+        </script> 
         <style>
      .footer {
      position: fixed;
