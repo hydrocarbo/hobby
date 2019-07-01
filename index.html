@@ -29,7 +29,7 @@
      <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
            <div class="onebleft">
-              <button onclick="myFunction" class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
+              <button class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
            </div>
         </div>
        
@@ -37,7 +37,7 @@
      </div>
   </div>
         <script type="text/javascript">
-            function myFunction() {
+            button.onclick = function() {
                 document.getElementById("animated-asset").src = 'https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf';
             }
         </script> 
