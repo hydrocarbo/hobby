@@ -7,12 +7,13 @@
     <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.1/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script>AFRAME.registerComponent('hello-world', {
+            init: function(){
  function myFunction() {
    // Solution for Modifying Entities.
           var sceneEl = document.querySelector('a-scene'); 
           sceneEl.querySelector('a-box').setAttribute('rotation', {x: 0, y: 0, z: 0});
 }
-        });
+            } });
     </script>
     <body style='margin : 0px; overflow: hidden;'>
        
