@@ -304,12 +304,6 @@ function init() {
     volumeBtn = $("#volume"),
     helpBtn = $('.help');
 
-
-  if (!'speechSynthesis' in window) {
-    // Synthesis support. show volume button
-    config.isVolume = false;
-    $('#volume').css('display', 'none');
-  }
   addObject(data, config.currentId, 1);
   helpBtn.click(function (e) {
     e.preventDefault();
@@ -387,14 +381,7 @@ function init() {
     speak();
   });
 
-  volumeBtn.click(function () {
-    config.isVolume = !config.isVolume;
-    if (config.isVolume) {
-      volumeBtn.removeClass('rotate_fade');
-    } else {
-      volumeBtn.addClass('rotate_fade');
-    }
-  });
+ 
 
   function addObject(data, toRemove, toRemoveId) {
     let currentData = data[config.currentId];
@@ -449,17 +436,7 @@ function init() {
       }
     });
   }
-  //speak feature
-  function speak() {
-    if (!config.isVolume) return;
-    let text = data[config.currentId].title + ' for ' + data[config.currentId].description;
-    let msg = new SpeechSynthesisUtterance();
-    msg.lang = 'en-US';
-    msg.rate = 8 / 10;
-    msg.pitch = 1;
-    msg.text = text;
-    speechSynthesis.speak(msg);
-  }
+
 }
 
 
