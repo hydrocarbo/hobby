@@ -21,11 +21,10 @@
   <main class="main">
     <div id="header">
       <div id="header-content">
-        <div>👪 AR-re</div>
+        <div>👪 AR Alphabets</div>
       </div>
     </div>
-    
-     <div id="splashScreen" class="AR-tip" style="display:none">
+    <div id="splashScreen" class="AR-tip" style="display:none">
       <p>👪 Teach every kid the alphabets using AR on web.
         <div>
           <a href="#" class="help" style="font-size:14px;">How it works?</a>
@@ -42,16 +41,16 @@
     <div class="word-tip">
       <div class="title"></div>
     </div>
-  
-  
-      <div class="btns-wrap">
+
+    <div class="btns-wrap">
       <div title="Rotate 360" class="btn rotate"></div>
       <div title="Zoom in/out" class="btn scale"></div>
       <div title="Previous Letter" class="btn prev custom-button"></div>
       <div title="Next Letter" class="btn next custom-button"></div>
       <div title="Speech Volume" id="volume" class="btn volume-up"></div>
     </div>
-    
+    <div class="AR-tip" id="noMedia" style="display:none">
+    </div>
   </main>
 
   <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' hidden>
