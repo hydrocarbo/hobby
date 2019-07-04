@@ -5,7 +5,7 @@ var data = [{
       description: 'Airplane',
       objAsset: 'airplane_asset_obj',
       mtlAsset: 'airplane_asset_mtl',
-      scale: '2 2 2',
+      scale: '0.3 0.3 0.3',
       scaleOne: '6 6 6',
       scaleTwo: '8 8 8',
       isObj: true
