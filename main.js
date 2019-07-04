@@ -24,7 +24,16 @@ import { data } from "./alphabetsList";
 
 
     addObject(data, config.currentId, 1);
+     
+    helpBtn.click(function(e) {
+      e.preventDefault();
+      $("#video_demo")[0].style.display = "block";
+    });
 
+    gotitBtn.click(function() {
+      gotitBtn.parent().css({
+        display: "none"
+      });
    
     });
 
