@@ -12,6 +12,8 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
   <script async src="main.js"></script>
 </head>
 
@@ -29,8 +31,7 @@
       <div title="Next Letter" class="btn next custom-button"></div>
       <div title="Speech Volume" id="volume" class="btn volume-up"></div>
     </div>
-    <div class="AR-tip" id="noMedia" style="display:none">
-    </div>
+    
   </main>
 
   <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' hidden>
