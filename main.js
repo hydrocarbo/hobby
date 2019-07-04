@@ -1,4 +1,4 @@
-import { data } from "alphabetsList";
+import { data } from "./alphabetsList";
 
 (function() {
   "use strict";
