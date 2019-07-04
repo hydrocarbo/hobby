@@ -22,10 +22,13 @@ import { data } from "./alphabetsList";
       helpBtn = $(".help");
 
 
-addObject(data, config.currentId, 1);
 
+    addObject(data, config.currentId, 1);
 
- rotateBtn.click(function() {
+   
+    });
+
+    rotateBtn.click(function() {
       if (rotateBtn.hasClass("rotate_fade")) {
         config.currentObject.emit("endRotate");
         rotateBtn.removeClass("rotate_fade");
@@ -35,10 +38,7 @@ addObject(data, config.currentId, 1);
       }
     });
 
-
-
-
-     scaleBtn.click(function() {
+    scaleBtn.click(function() {
       let { scale, scaleOne, scaleTwo } = data[config.currentId];
 
       if (config.scaleFlag == 0) {
@@ -57,7 +57,7 @@ addObject(data, config.currentId, 1);
       }
     });
 
-     prevBtn.click(function() {
+    prevBtn.click(function() {
       config.scaleFlag = 0;
       scaleBtn.removeClass("scale_one");
       scaleBtn.removeClass("scale_two");
@@ -71,7 +71,7 @@ addObject(data, config.currentId, 1);
       addObject(data, config.currentId, config.currentId + 1);
       hideObjects(data, config.currentId);
       $(".title").html(data[config.currentId].description);
-      speak();
+      
     });
 
     nextBtn.click(function() {
@@ -87,9 +87,13 @@ addObject(data, config.currentId, 1);
       addObject(data, config.currentId, config.currentId - 1);
       //hide all rest of the objects
       hideObjects(data, config.currentId);
-       });
+      $(".title").html(data[config.currentId].description);
+      
+    });
 
-        function createEntity(currentData) {
+   
+
+    function createEntity(currentData) {
       let entity = document.createElement("a-entity");
 
       entity.setAttribute("id", "obj_" + currentData.id);
@@ -160,4 +164,11 @@ addObject(data, config.currentId, 1);
         }
       });
     }
-    })();
+   
+  }
+
+
+  }
+
+  
+})();
