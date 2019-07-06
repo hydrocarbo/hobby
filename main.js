@@ -15,7 +15,7 @@ var data = [{
       title: 'B',
       description: 'Boat',
       assetId: 'boat_asset',
-      scale: '0.5 0.5 0.5',
+      scale: '0.02 0.02 0.02',
       scaleOne: '6 6 6',
       scaleTwo: '8 8 8',
       isObj: false
