@@ -35,7 +35,7 @@ var data = [{
       title: 'D',
       description: 'Deer',
       assetId: 'deer_asset',
-      scale: '0.8 0.8 0.8',
+      scale: '0.02 0.02 0.02',
       scaleOne: '0.9 0.9 0.9',
       scaleTwo: '1.1 1.1 1.1',
       isObj: false
