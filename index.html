@@ -54,7 +54,7 @@
     </div>
   </main>
 
-  <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; renderer='logarithmicDepthBuffer: true;' debugUIEnabled: false;' hidden>
+  <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' hidden>
     <a-assets>
       <a-asset-item id="airplane_asset_mtl" src="https://raw.githubusercontent.com/2-two/swaper/master/Radisson%2BHotel%5B1%5D%5B1%5D.mtl"></a-asset-item>
       <a-asset-item id="airplane_asset_obj" src="https://raw.githubusercontent.com/2-two/swaper/master/Radisson%2BHotel%5B1%5D%5B1%5D.obj"></a-asset-item>
@@ -108,7 +108,7 @@
       <a-entity light="type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"></a-entity>
     </a-marker>
 
-    <a-entity camera="far:100000; near:0.01"></a-entity>
+  <a-entity camera></a-entity>
 
   </a-scene>
  
