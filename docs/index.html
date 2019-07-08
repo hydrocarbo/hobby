@@ -10,6 +10,18 @@
 <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.js">
 </script>
+	<script>
+		AFRAME.registerComponent('hello-world', {
+  init: function () {
+    console.log('Hello, World!');
+	  document.querySelector("button").addEventListener("click", (e)=>{
+	console.log("HIDE OBJECTS");
+			var x = document.querySelector("a-torus-knot");  
+                      x.radius = 1.2; 
+})
+  }
+});
+	</script>
 	
 	</head>
 <body>
