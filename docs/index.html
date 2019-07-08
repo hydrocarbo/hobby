@@ -6,7 +6,18 @@
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
+    <script>
+		
+	  document.querySelector("button").addEventListener("click", myFunction);
+function myFunction() {
+  console.log("HIS");
+	x = document.querySelector('#animated-asset');
+			       x.setAttribute("src", "https://raw.githubusercontent.com/prashant-andani/3d-models/master/cow/scene.gltf");
+			 console.log("huccS");       
+			   
+	
+}
+	</script>
     <body style='margin : 0px; overflow: hidden;'>
          <div style='position: fixed; top: 100px; width:100%; text-align: center; z-index: 1;'>
 		<button>
@@ -33,17 +44,6 @@
 
         <a-entity camera></a-entity>
         </a-scene>
-        <script>
-		
-	  document.querySelector("button").addEventListener("click", myFunction);
-function myFunction() {
-  console.log("HIS");
-	x = document.querySelector('#animated-asset');
-			       x.setAttribute("src", "https://raw.githubusercontent.com/prashant-andani/3d-models/master/cow/scene.gltf");
-			 console.log("huccS");       
-			   
-	
-}
-	</script>
+        
     </body>
 </html>
