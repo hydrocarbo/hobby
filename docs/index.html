@@ -9,37 +9,43 @@
     window.location.href = "/demo/1/"
 }
   </script>
-
+    <style>
+.overlay{position: absolute;
+            display: flex;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+           }
+            .overlay .videoButtonWrapper{
+                flex-direction: row;
+                margin-bottom: 10px;
+            }
+            .videoBackgroundWrapper{position: relative; width: 100%;}
+            .videoBackground{width: 100%;}
+              .tooltip:hover .tooltiptext {
+                  visibility: visible;
+              }
+    </style>
 </head>
 <body>
-<a href="something" class="button3">Start</a>
-<style>
-
-a.button3{
- display:inline-block;
- padding:0.3em 1.2em;
- margin:0 0.3em 0.3em 0;
- border-radius:2em;
- box-sizing: border-box;
- text-decoration:none;
- font-family:'Roboto',sans-serif;
- font-weight:300;
- color:#8ed3e2;
- background-color:#f8e7e7;
- text-align:center;
- transition: all 0.2s;
-}
-a.button3:hover{
- background-color:#4095c6;
-}
-@media all and (max-width:30em){
- a.button3{
-  display:block;
-  margin:0.2em auto;
- }
-}
-
-
-</style>
+   <div class="videoBackgroundWrapper">
+                     <video preload="auto" autoplay="true" loop="true" class="videoBackground">
+                 <source src="startup.mp4" type="video/mp4">
+              </video>
+                        <div class="overlay">
+             <h2>Professional Quality Videos Rendered Fast!</h2>
+             <p>Start with one of over 70 customizable templates amd create the perfect video to advertise your product or service.</p>
+             <div class="videoButtonWrapper">
+             <button class="btn btn-primary">See Templates</button>
+             <button class="btn btn-primary">Make Video</button>
+             </div>
+        </div>
+</div>
 </body>
 </html>
