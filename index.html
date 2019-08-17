@@ -17,8 +17,12 @@
         <img class="bigpic" src="bigpic.png" />
         </div>   
         <a-scene embedded arjs>
+            <a-assets>
+    <img id="my-image" src="image.png">
+  </a-assets>
       <a-marker preset="hiro">
-          <a-box position='0 0.5 0' material='color: yellow;'></a-box>
+          
+          <a-image src="#my-image" width="3" height="1.5"></a-image>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
@@ -26,12 +30,12 @@
      <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
            <div class="onebleft">
-              <button id='abc' class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Play </button>
+              <button id='abc' class="btn btnskips" style="textcolour:red; height:40px; width:50px; border-radius:10px;"> Worship </button>
            </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
            <div class="onebright">
-              <button onclick="refrespage()" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Refresh</button>
+              <button onclick="location.href = 'https://paytm.com/helpinghand';" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Donate</button>
            </div>
         </div>
      </div>
