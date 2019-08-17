@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
     <body style='margin : 0px; overflow: hidden;'>
-        <audio id="my_audio" src="bg.mp3" loop="loop"></audio>
+        <audio id="audio" src="bg.mp3" loop="loop"></audio>
         <img src="https://media.giphy.com/media/mPMuuwA7YqF5m/giphy.gif" alt="" class="post-thumb" onclick='this.src=this.src'/>
         <div class='direct' id='directed'>
         <img class="bigpic" src="bigpic.png" />
@@ -37,6 +37,17 @@
      </div>
   </div>
         <script>
+            var promise = document.querySelector('#audio').play();
+
+if (promise !== undefined) {
+    promise.then(_ => {
+        // Autoplay started!
+    }).catch(error => {
+        // Autoplay was prevented.
+        // Show a "Play" button so that user can start playback.
+    });
+}
+            
 $(document).ready(function(){
   $("#abc").click(function(){
 $('body').sakura()
