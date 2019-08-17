@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
     <body style='margin : 0px; overflow: hidden;'>
-        
+        <audio id="my_audio" src="bg.mp3" loop="loop"></audio>
         <img src="https://media.giphy.com/media/mPMuuwA7YqF5m/giphy.gif" alt="" class="post-thumb" onclick='this.src=this.src'/>
         <div class='direct' id='directed'>
         <img class="bigpic" src="bigpic.png" />
@@ -44,6 +44,9 @@ $('body').sakura()
 });
     });
 </script>
+        $(document).ready(function() {
+    $("#my_audio").get(0).play();
+});
    <style>
        .bigpic{position:fixed;
            left:50%;top:50%;-webkit-transform:translate(-50%, -50%);
