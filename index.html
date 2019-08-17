@@ -133,11 +133,11 @@
         <script>
             var m = document.querySelector("a-marker")
 m.addEventListener("markerFound", (e)=>{
-   document.getElementById('bigpic').style.visibility = 'hidden'; 
+   document.getElementByClassName('direct').style.visibility = 'hidden'; 
 })
 
 m.addEventListener("markerLost", (e)=>{
-   document.getElementById('bigpic').style.visibility = 'visible'; 
+   document.getElementByClassName('direct').style.visibility = 'visible'; 
 })
         </script>
     </body>
