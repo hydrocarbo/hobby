@@ -39,14 +39,7 @@
         <script>
             var promise = document.querySelector('#audio').play();
 
-if (promise !== undefined) {
-    promise.then(_ => {
-        // Autoplay started!
-    }).catch(error => {
-        // Autoplay was prevented.
-        // Show a "Play" button so that user can start playback.
-    });
-}
+
             
 $(document).ready(function(){
   $("#abc").click(function(){
@@ -55,8 +48,15 @@ $('body').sakura()
 });
     });
              $(document).ready(function() {
-    $("#my_audio").get(0).play();
-});
+   $("#my_audio").get(0).play();
+                if (promise !== undefined) {
+    promise.then(_ => {
+        // Autoplay started!
+    }).catch(error => {
+        // Autoplay was prevented.
+    });
+} 
+     });
 </script>
        
    <style>
