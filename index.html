@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
     <body style='margin : 0px; overflow: hidden;'>
-        <div class='direct'>
+        <div class='direct' id='directed'>
         <img class="bigpic" src="bigpic.png" />
         </div>   
         <a-scene embedded arjs>
@@ -133,11 +133,11 @@
         <script>
             var m = document.querySelector("a-marker")
 m.addEventListener("markerFound", (e)=>{
-   document.getElementByClassName('direct').style.visibility = 'hidden'; 
+   document.getElementById('directed').style.visibility = 'hidden'; 
 })
 
 m.addEventListener("markerLost", (e)=>{
-   document.getElementByClassName('direct').style.visibility = 'visible'; 
+   document.getElementById('directed').style.visibility = 'visible'; 
 })
         </script>
     </body>
