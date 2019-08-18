@@ -16,12 +16,15 @@
         <div class='direct' id='directed'>
         <img class="bigpic" src="bigpic.png" />
         </div>   
-        <a-scene embedded arjs>
+        <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; imageSmoothingEnabled: true;'>
             <a-assets>
     <img id="my-image" src="image.png">
+                <a-asset-item id="Bird" response-type="arraybuffer" src="https://raw.githubusercontent.com/rileypaik/Outdoors/gh-pages/Bird.glb"></a-asset-item>
+
   </a-assets>
-      <a-marker preset="hiro">
-          <a-box position='0 0.5 0' material='color: yellow;'></a-box>
+      <a-marker preset='hiro' smooth='true'>
+          
+           <a-entity gltf-model="#Bird" position="-1 0 1" scale="0.009 0.009 0.009" rotation="-80 0 0" animation-mixer></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
