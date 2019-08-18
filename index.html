@@ -9,14 +9,14 @@
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-
+<script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <body style='margin : 0px; overflow: hidden;'>
         <audio id="my_audio" src="bg.mp3" loop="loop"></audio>
         <img src="https://media.giphy.com/media/mPMuuwA7YqF5m/giphy.gif" alt="" class="post-thumb" onclick='this.src=this.src'/>
         <div class='direct' id='directed'>
         <img class="bigpic" src="bigpic.png" />
         </div>   
-        <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; imageSmoothingEnabled: true;'>
+        <a-scene id='scene' embedded arjs='trackingMethod: best; sourceType: webcam; imageSmoothingEnabled: true;'>
             <a-assets>
     <img id="my-image" src="image.png">
                 <a-asset-item id="Bird" response-type="arraybuffer" src="https://raw.githubusercontent.com/rileypaik/Outdoors/gh-pages/Bird.glb"></a-asset-item>
@@ -169,4 +169,34 @@ m.addEventListener("markerLost", (e)=>{
         <script src="jquery-sakura.min.js"></script>
 
     </body>
+    <script>
+	const scene = document.getElementById('scene')
+	scene.addEventListener('touchmove', event => {movingTouch(event)})
+	const model = document.getElementById('model')
+	const manager = new Hammer.Manager(scene)
+	const pinch = new Hammer.Pinch()
+	manager.add(pinch)
+	manager.on('pinch', function(ev) {
+		if (!model) return
+		const curr = model.getAttribute('scale')
+		const scale = (ev.scale - 1)*0.01
+		model.setAttribute('scale', {
+			'x': curr.x + scale,
+			'y': curr.y + scale,
+			'z': curr.z + scale
+		})
+	})
+	const movingTouch = event => {
+		if (!model) return
+		const curr = model.getAttribute('rotation')
+		let touches = event.changedTouches
+		for (touch of touches) {
+			model.setAttribute('rotation', {
+				'x': curr.x - touch.pageY*0.01,
+				'y': curr.y + touch.pageX*0.01,
+				'z': curr.z
+			})
+		}
+	}
+</script>
 </html>
