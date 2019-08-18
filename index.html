@@ -187,17 +187,6 @@ m.addEventListener("markerLost", (e)=>{
 			'z': curr.z + scale
 		})
 	})
-	const movingTouch = event => {
-		if (!model) return
-		const curr = model.getAttribute('rotation')
-		let touches = event.changedTouches
-		for (touch of touches) {
-			model.setAttribute('rotation', {
-				'x': curr.x - touch.pageY*0.01,
-				'y': curr.y + touch.pageX*0.01,
-				'z': curr.z
-			})
-		}
-	}
+	
 </script>
 </html>
