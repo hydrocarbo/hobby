@@ -13,19 +13,19 @@
 	</head> 
     <body style='margin : 0px; overflow: hidden;'>
         <audio id="my_audio" src="bg.mp3" loop="loop"></audio>
-        <img src="https://media.giphy.com/media/mPMuuwA7YqF5m/giphy.gif" alt="" class="post-thumb" onclick='this.src=this.src'/>
-        <div class='direct' style="opacity: 0.25;" id='directed'>
+         <div class='direct' style="opacity: 0.25;" id='directed'>
         <img class="bigpic" src="bigpic.png" />
         </div>   
         <a-scene id='scene' embedded arjs='trackingMethod: best; sourceType: webcam; imageSmoothingEnabled: true;'>
             <a-assets>
     <img id="my-image" src="image.png">
+		    <a-asset-item id="ganesh" response-type="arraybuffer" src="ganeshfinal.glb"></a-asset-item>
                 <a-asset-item id="Bird" response-type="arraybuffer" src="https://raw.githubusercontent.com/rileypaik/Outdoors/gh-pages/Bird.glb"></a-asset-item>
 
   </a-assets>
       <a-marker preset='hiro' smooth='true'>
           
-          <a-entity id='model' gltf-model="#Bird" position="-1 0 1" scale="0.009 0.009 0.009" rotation="-80 0 0" animation-mixer></a-entity>
+          <a-entity id='model' gltf-model="#ganesh" position="-1 0 1" scale="0.009 0.009 0.009" rotation="-80 0 0" animation-mixer></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
