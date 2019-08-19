@@ -19,14 +19,15 @@
         <a-scene id='scene' embedded arjs='trackingMethod: best; sourceType: webcam; imageSmoothingEnabled: true;'>
             <a-assets>
     <img id="my-image" src="image.png">
+		    
 		    <a-asset-item id="ganesh" response-type="arraybuffer" src="ganeshfinal.glb"></a-asset-item>
                 <a-asset-item id="Bird" response-type="arraybuffer" src="https://raw.githubusercontent.com/rileypaik/Outdoors/gh-pages/Bird.glb"></a-asset-item>
 
   </a-assets>
       <a-marker preset='hiro' smooth='true'>
-          
-          <a-entity id='model' gltf-model="#ganesh" position="0 0 1" scale="0.01 0.01 0.01" rotation="-80 0 0" animation-mixer></a-entity>
-      </a-marker>
+          <img id="my-image2" src="image2.png" rotation="-80 0 0">
+    <!--      <a-entity id='model' gltf-model="#ganesh" position="0 0 1" scale="0.01 0.01 0.01" rotation="-80 0 0" animation-mixer></a-entity>
+     --> </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
         <div class="footer">
