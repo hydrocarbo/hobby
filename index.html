@@ -24,7 +24,7 @@
                 <a-asset-item id="Bird" response-type="arraybuffer" src="https://raw.githubusercontent.com/rileypaik/Outdoors/gh-pages/Bird.glb"></a-asset-item>
 
   </a-assets>
-      <a-marker preset='custom' patternUrl='ganpati.patt' url='ganpati.patt smooth='true'>
+      <a-marker preset='custom' smooth='true'>
           <img id="my-image2" src="image2.png" rotation="-80 0 0">
     <!--      <a-entity id='model' gltf-model="#ganesh" position="0 0 0" scale="0.01 0.01 0.01" rotation="-80 0 0" animation-mixer></a-entity>
      --> </a-marker>
@@ -46,7 +46,7 @@
            <div class="onebright">
               <button onclick="location.href = 'https://instagram.com';" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Donate</button>
            </div>
-		      </div>
+		      
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
            <div class="onebright">
               <button onclick="location.href = 'https://paytm.com/helpinghand';" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Donate</button>
@@ -188,11 +188,7 @@ m.addEventListener("markerLost", (e)=>{
 })
         </script>
         <script src="jquery-sakura.min.js"></script>
-<!-- hammer.js for gesture recognition on screen -->
-<script src='hammer.min.js'></script>
-<script src='hammer-time.min.js'></script>
-	    
-	    <script src='AppGesture.js'></script>
+
     </body>
    
 </html>
