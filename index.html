@@ -3,14 +3,14 @@
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
        <link href="jquery-sakura.min.css" rel="stylesheet" type="text/css"> 
-   
+	</head>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
     
-	</head> 
+
     <body style='margin : 0px; overflow: hidden;'>
         <audio id="my_audio" src="bg.mp3" loop="loop"></audio>
          <div class='direct' style="opacity: 0.25;" id='directed'>
@@ -18,35 +18,36 @@
         </div>   
         <a-scene id='scene' embedded arjs='trackingMethod: best; sourceType: webcam; imageSmoothingEnabled: true;'>
             <a-assets>
-    <img id="my-image" src="image.png">
-		    
-		    <a-asset-item id="ganesh" response-type="arraybuffer" src="ganeshfinal.glb"></a-asset-item>
-                <a-asset-item id="Bird" response-type="arraybuffer" src="https://raw.githubusercontent.com/rileypaik/Outdoors/gh-pages/Bird.glb"></a-asset-item>
-
+   <video preload="auto"  id="vid" loop="true" crossorigin  webkit-playsinline playsinline controls>
+           <source  type="video/mp4"  src="ganpati.mp4">
+           <h3>Error : Your browser does not support.</h3>
+          <!-- FOR NORMAL VIDEO YOU CAN USE MP4 or WEBM BUT FOR ALPHA VIDEO YOU NEED TO USE .WEBM FORMAT-->
+        </video>
   </a-assets>
       <a-marker preset='hiro' smooth='true'>
-          <img id="my-image2" src="image2.png" rotation="-80 0 0">
+             <a-plane  position='0 0.1 0' scale="6 6 6" rotation="-90 0 0" material="shader: chromakey; src: #vid; color: 0.0 0.9 1.0"></a-plane>
     </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
         <div class="footer">
      <div class="row"> 
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+           <div class="onebleft">
+              <button onclick="vid.play()" class="btn btnskips" style="textcolour:red; height:40px; width:70px; border-radius:10px;">Play</button>
+           </div>
+        </div>
+	     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
            <div class="onebleft">
               <button id='abc' class="btn btnskips" style="textcolour:red; height:40px; width:70px; border-radius:10px;">Worship</button>
            </div>
         </div>
-	     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+	     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
            <div class="onebleft">
               <button id='ff' onclick="location.href='https://www.facebook.com/pune99blog/photos/a.885940691534322/1688786861249697/?type=3&theater';" class="btn btnskips" style="textcolour:red; height:40px; width:70px; border-radius:10px;">Share</button>
            </div>
 	     </div>
-	      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
-           <div class="onebright">
-              <button onclick="location.href = 'https://instagram.com';" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">More</button>
-           </div>
-	     </div>     
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+	       
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
            <div class="onebright">
               <button onclick="location.href = 'https://paytm.com/helpinghand';" class="btn btnskips" style="height:40px; width:70px; border-radius:10px">Donate</button>
            </div>
@@ -54,11 +55,7 @@
      </div>
   </div>
         <script>
-           
-
-
-            
-$(document).ready(function(){
+           $(document).ready(function(){
   $("#abc").click(function(){
 $('body').sakura({
 	fallSpeed: 2,
