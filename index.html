@@ -1,0 +1,26 @@
+<!doctype HTML>
+<html>
+  <head>
+<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs>
+    <a-assets>
+    <img id="my-image" src="image.png">
+    <img id="my-image1" src="image1.png">
+    <img id="my-image"2 src="image2.png">
+  </a-assets>
+  	<a-marker preset="hiro">
+               <a-image src="#my-image" position="0 0 0"></a-image>
+               <a-image src="#my-image1" animation="property: position; to: 5 1.6 1; dur: 1500; easing: linear"></a-image>
+               <a-image src="#my-image"2 animation="property: position; to: 1.6 5 1; dur: 1500; easing: linear"></a-image>
+
+              <a-box color="tomato" depth="2" height="2" width="2" 
+                animation="property: rotation; dur: 3000; to: 0 360 0; loop: true" >
+              </a-box>
+  	</a-marker>
+  	<a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
