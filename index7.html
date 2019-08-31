@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="https://cdn.glitch.com/e614a6f8-f4ba-4733-8a7c-e61e5d59427e%2Fbundle.js?1551541439932"></script></head>
+
+<body>
+  <a-scene
+    arjs="debugUIEnabled: false; detectionMode: mono;"
+    vr-mode-ui="enabled: false;"
+    renderer="antialias: true; colorManagement: true; sortObjects: true; logarithmicDepthBuffer: true;"
+    embedded
+  >
+    <a-camera look-controls-enabled="false" near="0.1" far="20">
+      <a-entity position="0 0 -1"></a-entity>
+    </a-camera>
+
+    <a-assets>
+      <video id="test" autoplay playsinline webkit-playsinline muted loop="true" src="https://cdn.glitch.com/e614a6f8-f4ba-4733-8a7c-e61e5d59427e%2Fd55bddf8d62910879ed9f605522149a8.mp4?1551541382508"></video>
+    </a-assets>
+
+    <a-marker
+      type="pattern"
+      preset="hiro"
+      smooth="true"
+    >
+      <a-video
+        src="#test"
+        width="1.6"
+        height="0.9"
+        position="0 2 0"
+      ></a-video>
+    </a-marker>
+
+    <!-- This is a pretty good default lighting setup, but feel free to tweak as needed. -->
+    <a-light type="ambient" color="#bbb" intensity="0.8"></a-light>
+    <a-light type="directional" intensity="0.6" color="#ffffff" position="0.25 0.5 1"></a-light>
+  </a-scene>
+</body>
+
+</html>
