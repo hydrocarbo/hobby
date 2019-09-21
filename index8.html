@@ -1,0 +1,56 @@
+
+
+<!doctype HTML>
+<html>
+    
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+       
+	
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  
+
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
+	<script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+   <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+   
+    <body style='margin : 0px; overflow: hidden;'>
+         
+        <a-scene
+    arjs="debugUIEnabled: false; detectionMode: mono;"
+    vr-mode-ui="enabled: false;"
+    renderer="antialias: true; colorManagement: true; sortObjects: true; logarithmicDepthBuffer: true;"
+    embedded
+  >
+<a-assets>
+<a-image id='cloud' src="cloud.png" >
+</a-assets>
+             
+      
+      
+      
+<a-marker preset='hiro' smooth='true'>
+  <a-image src='#cloud' rotation='-90 0 0' scale='2 2 2' position="0 1 0" animation="property: position; to: 5 1 0; dur: 4000; ; delay:1000; easing: linear; loop:true"></a-image>
+    
+    </a-marker>
+      
+      <!-- Sounds. -->
+  
+      
+      <a-entity camera></a-entity>
+       <!-- This is a pretty good default lighting setup, but feel free to tweak as needed. 
+    <a-light type="ambient" color="#bbb" intensity="0.8"></a-light>
+    <a-light type="directional" intensity="0.6" color="#ffffff" position="0.25 0.5 1"></a-light> -->
+    
+    </a-scene>
+	    
+	      
+
+    </body>
+   
+</html>
